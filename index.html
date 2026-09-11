@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>槟城 9/27–10/2 旅行地图</title>
-<meta name="description" content="槟城乔治市、美食、升旗山与海边六日参考行程">
+<title>新加坡 + 槟城 9/27–10/3 旅行地图</title>
+<meta name="description" content="新加坡城市文化与槟城乔治市、美食、升旗山、海边七日参考行程">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -237,32 +237,37 @@ a:hover { text-decoration: underline; }
 // ║  REPLACE THIS SECTION — Hotel and Days data                 ║
 // ╚══════════════════════════════════════════════════════════════╝
 
-const HOTEL = { name: '乔治市乔治酒店（建议住古迹区）', lat: 5.4141, lng: 100.3288 };
+const HOTEL = { name: '新加坡市中心酒店（建议住武吉士/市政区）', lat: 1.2966, lng: 103.8520 };
 const DAYS = [
 {id:0,label:'总览',color:'#0071e3',locations:[]},
-{id:1,label:'D1 · 抵达',date:'9/27 周日',title:'入住与乔治市夜食',color:'#ff9500',locations:[
+{id:1,label:'D1 · 新加坡',date:'9/27 周日',title:'抵达 + 滨海湾夜景',color:'#ff9500',locations:[
+{name:'新加坡樟宜机场',lat:1.3644,lng:103.9915,type:'transport',time:'—',desc:'上海浦东 PVG → 新加坡 SIN；优先查 MU565 等直飞，抵达后前往市中心',gmap:'Singapore Changi Airport',reserve:'https://www.ceair.com/'},
+{name:'滨海湾花园',lat:1.2816,lng:103.8636,type:'spot',time:'17:00',desc:'第一晚轻松看超级树与滨海湾日落；室外项目受天气影响',gmap:'Gardens by the Bay'},
+{name:'老巴刹 Lau Pa Sat',lat:1.2806,lng:103.8503,type:'food',time:'19:30',desc:'市中心熟食中心，适合抵达日自由选餐',budget:'SGD15–35',gmap:'Lau Pa Sat'}]},
+{id:2,label:'D2 · 新加坡',date:'9/28 周一',title:'老城文化 + 夜间动物园',color:'#34c759',locations:[
+{name:'牛车水',lat:1.2838,lng:103.8440,type:'spot',time:'09:30',desc:'佛牙寺、牛车水街区与南洋老店，步行强度中等',gmap:'Chinatown Singapore'},
+{name:'Maxwell Food Centre',lat:1.2803,lng:103.8447,type:'food',time:'12:30',desc:'海南鸡饭、粿汁等本地小吃集中，午餐高峰排队',budget:'SGD8–20',gmap:'Maxwell Food Centre'},
+{name:'小印度 + 甘榜格南',lat:1.3067,lng:103.8518,type:'spot',time:'15:00',desc:'彩色街区、苏丹回教堂与哈芝巷，适合拍照',gmap:'Haji Lane'},
+{name:'夜间野生动物园',lat:1.4043,lng:103.7930,type:'spot',time:'18:30',desc:'全程最重的一项，建议提前买票；疲劳时可改为克拉码头夜游',budget:'门票另计',gmap:'Night Safari Singapore'}]},
+{id:3,label:'D3 · 新加坡→槟城',date:'9/29 周二',title:'圣淘沙半日 + 飞槟城',color:'#007aff',locations:[
+{name:'圣淘沙',lat:1.2494,lng:103.8303,type:'spot',time:'09:30',desc:'海边、缆车或环球影城三选一，不建议全部塞满',gmap:'Sentosa Singapore'},
+{name:'SIN → PEN Scoot（候选）',lat:5.2971,lng:100.2769,type:'transport',time:'17:00',desc:'首选廉航；飞行约1小时15–30分，建议至少提前2小时到樟宜机场',budget:'参考 SGD122 起',gmap:'Penang International Airport',reserve:'https://www.flyscoot.com/flights/en-sg/flights-from-singapore-to-penang'},
+{name:'乔治市古迹区酒店',lat:5.4147,lng:100.3295,type:'hotel',time:'晚间',desc:'抵达后入住；建议住古迹区，后续步行更顺',gmap:'George Town Penang'}]},
+{id:4,label:'D4 · 槟城',date:'9/30 周三',title:'入住与乔治市夜食',color:'#ff9500',locations:[
 {name:'乔治市古迹区',lat:5.4147,lng:100.3295,type:'spot',time:'16:00',desc:'办理入住，沿壁画街与姓氏桥散步',gmap:'George Town Penang'},
 {name:'新关仔角 Gurney Drive',lat:5.4372,lng:100.3095,type:'food',time:'19:00',desc:'海边夜市，适合第一晚轻松觅食；小红书常见打卡点',budget:'RM20–40',gmap:'Gurney Drive Hawker Centre'}]},
-{id:2,label:'D2 · 古迹',date:'9/28 周一',title:'世遗街区 + 娘惹菜',color:'#34c759',locations:[
+{id:5,label:'D5 · 槟城',date:'10/1 周四',title:'世遗街区 + 娘惹菜',color:'#34c759',locations:[
 {name:'张弼士故居（蓝屋）',lat:5.4177,lng:100.3332,type:'spot',time:'09:30',desc:'参加导览，提前查当天场次',budget:'RM25',gmap:'Cheong Fatt Tze Blue Mansion'},
 {name:'Tek Sen Restaurant',lat:5.4149,lng:100.3327,type:'food',time:'12:30',desc:'Michelin Bib Gourmand；招牌双烧肉，排队风险中高',budget:'RM20–60',gmap:'Tek Sen Restaurant Penang'},
 {name:'乔治市街头艺术',lat:5.4145,lng:100.3371,type:'spot',time:'15:00',desc:'爱情巷、壁画街、姓氏桥步行串联',gmap:'Armenian Street Penang'},
 {name:'Auntie Gaik Lean’s Old School Eatery',lat:5.4163,lng:100.3378,type:'food',time:'18:30',desc:'米其林一星娘惹菜，建议提前预约',budget:'RM100+',gmap:'Auntie Gaik Lean Old School Eatery'}]},
-{id:3,label:'D3 · 山海',date:'9/29 周二',title:'升旗山与极乐寺',color:'#007aff',locations:[
+{id:6,label:'D6 · 槟城',date:'10/2 周五',title:'升旗山与极乐寺',color:'#007aff',locations:[
 {name:'升旗山 Penang Hill',lat:5.4192,lng:100.2732,type:'spot',time:'09:00',desc:'缆车上山看乔治市全景；雨季备雨具',budget:'缆车票另计',gmap:'Penang Hill Lower Station'},
 {name:'极乐寺 Kek Lok Si',lat:5.3997,lng:100.2731,type:'spot',time:'14:00',desc:'东南亚著名佛寺，与升旗山同区安排最省车程',gmap:'Kek Lok Si Temple'},
 {name:'Air Itam Laksa',lat:5.3991,lng:100.2688,type:'food',time:'16:00',desc:'亚依淡叻沙，酸辣开胃，适合作为山下简餐',budget:'RM8–15',gmap:'Air Itam Laksa'}]},
-{id:4,label:'D4 · 海边',date:'9/30 周三',title:'峇都丁宜慢日',color:'#af52de',locations:[
-{name:'峇都丁宜海滩',lat:5.4708,lng:100.2445,type:'spot',time:'10:00',desc:'上午海滩与水上活动；视天气调整',gmap:'Batu Ferringhi Beach'},
-{name:'The Ship Batu Ferringhi',lat:5.4758,lng:100.2458,type:'food',time:'13:00',desc:'海边西餐备选，适合不想折返乔治市的一天',budget:'RM40–80',gmap:'The Ship Batu Ferringhi'},
-{name:'海峡水上清真寺',lat:5.4566,lng:100.2388,type:'spot',time:'17:00',desc:'日落前抵达拍照，注意礼拜时间与着装',gmap:'Floating Mosque Tanjung Bungah'}]},
-{id:5,label:'D5 · 美食',date:'10/1 周四',title:'小吃巡游与日落',color:'#ff2d55',locations:[
+{id:7,label:'D7 · 返程',date:'10/3 周六',title:'小吃收尾 + 槟城机场',color:'#5856d6',locations:[
 {name:'Siam Road Char Koay Teow',lat:5.4165,lng:100.3256,type:'food',time:'11:30',desc:'Michelin Bib Gourmand 炒粿条；午餐时段排队',budget:'RM10–20',gmap:'Siam Road Char Koay Teow'},
-{name:'Penang Road Famous Laksa',lat:5.4104,lng:100.3311,type:'food',time:'15:00',desc:'经典槟城叻沙，顺路搭配乔治市老街',budget:'RM8–15',gmap:'Penang Road Famous Laksa'},
-{name:'Hin Bus Depot',lat:5.4097,lng:100.3264,type:'spot',time:'17:00',desc:'文创园区与周末市集（如遇开放）',gmap:'Hin Bus Depot'}]},
-{id:6,label:'D6 · 返程',date:'10/2 周五',title:'早午餐与离岛',color:'#5856d6',locations:[
-{name:'Chulia Street',lat:5.4174,lng:100.3338,type:'food',time:'09:00',desc:'最后一顿：咖喱面、咖啡与伴手礼',budget:'RM10–25',gmap:'Chulia Street George Town'},
-{name:'槟城国际机场',lat:5.2971,lng:100.2769,type:'transport',time:'—',desc:'建议至少提前3小时从乔治市出发',gmap:'Penang International Airport'}]}
+{name:'槟城国际机场',lat:5.2971,lng:100.2769,type:'transport',time:'—',desc:'PEN → SIN 后转 SIN → PVG；建议同票联运或预留至少4小时转机',gmap:'Penang International Airport',reserve:'https://www.flyscoot.com/flights/en-my/flights-from-penang-to-singapore'}]}
 ];
 
 // ╔══════════════════════════════════════════════════════════════╗
@@ -271,12 +276,12 @@ const DAYS = [
 
 function overviewContent() {
   return `
-<div class="hero"><h1>槟城 · Penang</h1><p class="subtitle">2026/9/27–10/2 · 乔治市美食与山海参考行程</p></div>
+<div class="hero"><h1>新加坡 + 槟城</h1><p class="subtitle">2026/9/27–10/3 · 城市文化、海岛与街头美食七日参考行程</p></div>
 <div class="info-grid">
-  <div class="info-card"><div class="label">酒店</div><div class="value">乔治市古迹区</div></div>
-  <div class="info-card"><div class="label">航班</div><div class="value">9/27–10/2（待定）</div></div>
-  <div class="info-card"><div class="label">交通卡</div><div class="value">Grab + 步行</div></div>
-  <div class="info-card"><div class="label">预估费用</div><div class="value">RM 1,000–1,600/人</div></div>
+  <div class="info-card"><div class="label">住宿</div><div class="value">新加坡市中心3晚 + 槟城古迹区4晚</div></div>
+  <div class="info-card"><div class="label">航班</div><div class="value">上海往返新加坡；9/29 SIN→PEN</div></div>
+  <div class="info-card"><div class="label">交通</div><div class="value">新加坡 MRT + Grab；槟城 Grab + 步行</div></div>
+  <div class="info-card"><div class="label">预估费用</div><div class="value">机票另计；当地 SGD500–800 + RM900–1,400/人</div></div>
 </div>
 <div class="section-head">行程概览</div>
 <div class="day-list">${DAYS.slice(1).map(d=>`<div class="card" onclick="go(${d.id})"><div class="name"><span class="dot" style="background:${d.color}"></span>${d.label} · ${d.title}</div><div class="desc">${d.date}</div></div>`).join('')}</div>
